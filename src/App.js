@@ -5,10 +5,14 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col} from 'reactstrap';
 
 class App extends Component {
+  state = {
+    guides: guides,
+  };
   render() {
     return (
       <div className="App">
         <Header />
+        <Button color="success" onClick={() => { GetWeather() }}>Get Weather</Button>
         <GuideCards />
       </div>
     );
@@ -22,6 +26,28 @@ function Header(){
       </header>
   )
 }
+
+function GetWeather(){
+  return(
+    console.log("Weather")
+  )
+}
+
+// class GuideCardList extends Component{
+//   render(){
+//     const guides = this.props.guides.map((guide) => {
+//       <GuideCards 
+//         key={guide.key}
+//         type={guide.type}
+//         title={guide.title}
+//         price={guide.price}
+//       />
+//     })
+//     return(
+//       {guides}
+//     )
+//   }
+// }
 
 function GuideCards(){
   return (
@@ -41,7 +67,7 @@ function GuideCards(){
                 </CardBody>
               </Card>
               </Col>
-            )
+             )
             })
           }
         </Row>
