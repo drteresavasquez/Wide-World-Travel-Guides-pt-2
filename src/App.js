@@ -1,0 +1,58 @@
+import React, { Component } from 'react';
+import './App.css';
+import guides from './guides.json';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Row, Col} from 'reactstrap';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <GuideCards />
+      </div>
+    );
+  }
+}
+
+function Header(){
+  return(
+    <header className="App-header">
+        <h1 className="App-title">Wide World Travel Guides Pt. 2</h1>
+      </header>
+  )
+}
+
+function GuideCards(){
+  return (
+  <div className="Card-body">
+        <Row>
+          {
+            guides.map(function(guide){
+              return (
+              <Col sm="4">
+              <Card className="Card">
+                <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBody>
+                  <CardTitle>{guide.title} </CardTitle>
+                  <CardSubtitle>{guide.type}</CardSubtitle>
+                  <CardText>${guide.price}</CardText>
+                  <Button onClick={() => { LogThis(guide)}}>Button</Button>
+                </CardBody>
+              </Card>
+              </Col>
+            )
+            })
+          }
+        </Row>
+        </div>
+  )
+}
+
+function LogThis(props){
+  return(
+    console.log(props)
+  )
+}
+
+export default App;
