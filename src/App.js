@@ -5,9 +5,6 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col} from 'reactstrap';
 
 class App extends Component {
-  state = {
-    guides: guides,
-  };
   render() {
     return (
       <div className="App">
@@ -33,28 +30,12 @@ function GetWeather(){
   )
 }
 
-// class GuideCardList extends Component{
-//   render(){
-//     const guides = this.props.guides.map((guide) => {
-//       <GuideCards 
-//         key={guide.key}
-//         type={guide.type}
-//         title={guide.title}
-//         price={guide.price}
-//       />
-//     })
-//     return(
-//       {guides}
-//     )
-//   }
-// }
-
 function GuideCards(){
   return (
   <div className="Card-body">
         <Row>
           {
-            guides.map(function(guide){
+            guides.map((guide) => {
               return (
               <Col sm="4">
               <Card className="Card">
